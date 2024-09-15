@@ -3,9 +3,9 @@
 title: Your Name
 description: subtitle | affiliations | motto
 
-baseurl: /gradfolio #name of GitHub repository
-url: "" #custom url to be used instead of GitHub repository
-email: #
+baseurl: /baldoinov.github.io #name of GitHub repository
+url: "vitorbaldoino.com" #custom url to be used instead of GitHub repository
+email: vdbaldoino@gmail.com
 
 # Pagination
 paginate: 4
@@ -13,15 +13,15 @@ permalink: /blog/:year/:title/
 paginate_path: /blog/page:num/
 
 # Social media links in footer
-twitter: "#"
 linkedin: "#"
-stackoverflow: "#"
 github: "#"
 researchgate: "#"
 orcid: "#"
-quora: "#"
-instagram: "#"
-facebook: "#"
+# stackoverflow: "#"
+# twitter: "#"
+# quora: "#"
+# instagram: "#"
+# facebook: "#"
 
 
 # Markdown
