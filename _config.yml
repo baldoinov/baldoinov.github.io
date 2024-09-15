@@ -1,11 +1,11 @@
 ### your site title here
 
-title: Your Name
-description: subtitle | affiliations | motto
+title: Vitor Baldoino
+description: Data Scientist | Economist | Researcher
 
-baseurl: /baldoinov.github.io #name of GitHub repository
-url: "vitorbaldoino.com" #custom url to be used instead of GitHub repository
-email: vdbaldoino@gmail.com
+baseurl: "/" #name of GitHub repository
+url: "https://baldoinov.github.io" #custom url to be used instead of GitHub repository
+email: "vdbaldoino@gmail.com"
 
 # Pagination
 paginate: 4
