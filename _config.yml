@@ -1,22 +1,22 @@
 ### your site title here
 
 title: Vitor Baldoino
-description: Data Scientist | Economist | Researcher
+description: Data Scientist | Economist
 
-baseurl: "/" #name of GitHub repository
+baseurl: "/"                       #name of GitHub repository
 url: "https://baldoinov.github.io" #custom url to be used instead of GitHub repository
 email: "vdbaldoino@gmail.com"
 
 # Pagination
-paginate: 4
-permalink: /blog/:year/:title/
-paginate_path: /blog/page:num/
+# paginate: 4
+# permalink: /blog/:year/:title/
+# paginate_path: /blog/page:num/
 
 # Social media links in footer
-linkedin: "#"
-github: "#"
-researchgate: "#"
-orcid: "#"
+linkedin: "vitorbaldoino/"
+github: "baldoinov"
+orcid: "0009-0007-5746-1819"
+# researchgate: "#"
 # stackoverflow: "#"
 # twitter: "#"
 # quora: "#"
@@ -48,12 +48,9 @@ collections:
     output: true
     permalink: /projects/:name/
     order:
-      - shortProject.md
-      - longerProjectTitle.md
-      - redirect.md
-      - project4.md
-      - project5.md
-      - project6.md
+      - ImpactoGastoPublico.md
+      - impactoUPAsSP.md
+
 
 sass:
   sass_dir: /assets/css/_sass
