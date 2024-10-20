@@ -3,14 +3,14 @@
 title: Vitor Baldoino
 description: Data Scientist | Economist
 
-baseurl: "/"                       #name of GitHub repository
-url: "https://baldoinov.github.io" #custom url to be used instead of GitHub repository
+baseurl: ""
+url: "https://baldoinov.github.io"
 email: "vdbaldoino@gmail.com"
 
 # Pagination
-# paginate: 4
-# permalink: /blog/:year/:title/
-# paginate_path: /blog/page:num/
+paginate: 4
+permalink: /blog/:title/
+paginate_path: /blog/page:num/
 
 # Social media links in footer
 linkedin: "vitorbaldoino/"
@@ -19,9 +19,6 @@ orcid: "0009-0007-5746-1819"
 # researchgate: "#"
 # stackoverflow: "#"
 # twitter: "#"
-# quora: "#"
-# instagram: "#"
-# facebook: "#"
 
 
 # Markdown

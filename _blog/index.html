@@ -5,7 +5,7 @@ title: Blog
 ---
 
 <div class="article-list">
-  {% for post in paginator.posts %}
+  {% for post in site.posts %}
     <h2><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
     <p>{{post.excerpt | strip_html}}</p>
   {% endfor %}
