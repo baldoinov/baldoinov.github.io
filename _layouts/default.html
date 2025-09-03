@@ -10,7 +10,10 @@
         <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
 
         <h1 class="post-headline">{{site.title}}</h1>
+        <hr style="height:0.5pt; visibility:hidden;" />
         <h3 class="post-description">{{site.description}}</h3>
+        <hr style="height:0.5pt; visibility:hidden;" />
+
 
         {% include navigation.html %}
 
@@ -25,6 +28,9 @@
     </head>
 
     <body>
+
+        <hr style="height:0.5pt; visibility:hidden;" />
+        
         <main>
             <article>
                 {{ content }}
@@ -43,8 +49,6 @@
         {% include social-footer.html %}
 
         </footer>
-
-        {% include analytics.html %}
 
     </body>
 
