@@ -13,6 +13,6 @@ layout: default
 	<h3><small>{{ post.date | date: '%Y' }}</small></h3>
 	{% endif %}
 	{% endunless %}
-	<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a><br>
+	<li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
 	{% endfor %}
 </div>
