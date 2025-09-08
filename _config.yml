@@ -13,7 +13,7 @@ permalink: /blog/:title/
 paginate_path: /blog/page:num/
 
 # Social media links in footer
-linkedin: "vitorbaldoino/"
+linkedin: "baldoinov/"
 github: "baldoinov"
 orcid: "0009-0007-5746-1819"
 # researchgate: "#"
@@ -65,3 +65,21 @@ plugins:
   - jekyll-paginate
   - jekyll-email-protect
   - jekyll-target-blank
+  - jekyll-scholar
+
+scholar:
+  style: apa
+  locale: en
+  sort_by: none
+  order: ascending
+
+  source: ./_bibliography
+  bibliography: references.bib
+  bibliography_template: "{{reference}}"
+  replace_strings: true
+  join_strings:    true
+
+  details_dir:    bibliography
+  details_layout: bibtex.html
+  details_link:   Details
+  query: "@*"
