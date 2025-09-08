@@ -5,6 +5,8 @@ profile:
   align: right
   image: profile.jpg
 published: true
+pagination:
+  enabled: true
 ---
 
 

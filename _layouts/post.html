@@ -7,9 +7,14 @@ layout: default
 
 {{content}}
 
-<!-- Comments only for posts -->
+
 {% if page.path contains '_posts' %}
     {% if site.disqus-shortname %}
         {% include disqus.html %}
     {% endif %}
 {% endif %}
+
+
+<h2>References</h2>
+
+{% bibliography --cited %}
