@@ -1,38 +1,47 @@
 ---
 layout: post
 title: What is the impact of public spending on the number of deaths in Brazilian cities?
-description: Análise do impacto do gasto público no número de mortes dos municípios brasileiros.
-lang: pt
-date: 2020-12-12
+lang: en
+date: 2022-07-14
 ---
 
 
-> Essa postagem foi escrita originalmente em português brasileiro e, por conta disso, as equações e os elementos dos gráficos podem conter palavras no idioma original.
+
+> [!IMPORTANT] Disclaimer
+> This post was originally written in Brazilian Portuguese, and as a result, the equations and elements in the charts may contain words in the original language.
 
 
-Este trabalho tem como objetivo compreender como determinadas variáveis econômicas influenciam o número de óbitos em cidades brasileiras. Para isso, utiliza-se uma cross-section de municípios que reúne a variável dependente — o número de óbitos — e potenciais variáveis explicativas, como despesas orçamentárias municipais, população total, região geográfica e indicadores educacionais. A investigação dialoga com a abordagem proposta por outros trabalhos que também analisaram a relação entre fatores socioeconômicos e mortalidade {% cite USMortalityEconomic_1995_SorlieEtAl %}.
+
+This study aims to understand how certain economic variables influence the number of deaths in Brazilian cities. To do so, a cross-section of municipalities is used, which includes the dependent variable — the number of deaths — and potential explanatory variables such as municipal budget expenditures, total population, geographic region, and educational indicators. The investigation engages with the approach proposed by other studies that have also analyzed the relationship between socioeconomic factors and mortality {% cite USMortalityEconomic_1995_SorlieEtAl %}.
+
 
 ## Descrição dos Dados
 
 
-A base utilizada neste trabalho é de elaboração própria, as bases brutas usadas para aquisição dos dados podem ser obtidas através do portal *Base dos Dados* {% cite Base_dos_Dados_Base_dos_Dados %} (a lista completa das bases utilizadas se encontra nas referências). Adicionalmente, os *scripts* utilizados para o tratamento, agregação e modelagem dos dados podem ser encontrados em no _GitHub_ [^1].
+The dataset used in this study was compiled by the author; the raw datasets used to acquire the data can be accessed through the *Base dos Dados* portal {% cite Base_dos_Dados_Base_dos_Dados %} (a complete list of the datasets used can be found in the references). Additionally, the *scripts* used for data processing, aggregation, and modeling can be found on _GitHub_ [^1].
 
 ![](/assets/images/impacto-do-gasto-publico/qual-o-impacto-do-gasto-publico.png)
 
+As shown in the left-hand chart, municipalities from all regions exhibit a positive association between the *log* of the number of deaths and the *log* of total security expenditure. This is counterintuitive, as one would expect the chart to show a negative relationship. This contradiction will be further explored in the regression models.
 
-Como apresentado no gráfico da esquerda, os municípios de todas as regiões apresentam uma associação positiva entre o *log* do número de óbitos e o *log* da despesa total em segurança, isto é contra-intuitivo, visto que se espera que o gráfico apresente relação negativa. Essa contradição será melhor explorada nos modelos de regressão.
+In the right-hand chart, the association between the *logs* of the number of deaths and population is displayed. An interesting observation in the upper distribution chart is that the *log* of the number of deaths in the Northeast region, compared to other regions, is concentrated at a slightly higher level and exhibits lower variance.
 
-No gráfico da direita, está a associação entre os *logs* do número de óbitos e da população. Um fato interessante no gráfico de distribuição superior é que o *log* do número de óbitos da região nordeste, comparado às outras regiões, concentra-se em um nível ligeiramente maior e possui menor variância.
 
 ## Modelos de Regressão
 
 A abordagem para estimar o impacto de variáveis econômicas no número de óbitos de um município consiste em estimar três modelos:
 
-$$log(\text{mortes}) = \beta_0 + \beta_1 log(\text{Pop}) + \beta_2 \text{Emprego} + \beta_3 log(\text{Despesa}) + \beta_4 \text{Evasão-EM} + \beta_5 \text{Nordeste} + u_i$$
+$$
+log(\text{mortes}) = \beta_0 + \beta_1 log(\text{Pop}) + \beta_2 \text{Emprego} + \beta_3 log(\text{Despesa}) + \beta_4 \text{Evasão-EM} + \beta_5 \text{Nordeste} + u_i
+$$
 
-$$log(\text{mortes}) = \beta_0 + \beta_1 log(\text{Pop}) + \beta_2\text{Emprego} + \beta_3 log(\text{Seg}) + \beta_4\text{Evasão-EM} + \beta_5\text{Nordeste} + u_i$$
+$$
+log(\text{mortes}) = \beta_0 + \beta_1 log(\text{Pop}) + \beta_2\text{Emprego} + \beta_3 log(\text{Seg}) + \beta_4\text{Evasão-EM} + \beta_5\text{Nordeste} + u_i
+$$
 
-$$log(\text{mortes}) = \beta_0 + \beta_1 log(\text{Pop}) + \beta_2 \text{Emprego} + \beta_{i, i = \{3, 4, 5\} } log(\text{Despesas}) + \beta_{i, i = \{6, 7\} } \text{Educação} + \beta_8\text{Nordeste} + u_i$$
+$$
+log(\text{mortes}) = \beta_0 + \beta_1 log(\text{Pop}) + \beta_2 \text{Emprego} + \beta_{i, i = \{3, 4, 5\} } log(\text{Despesas}) + \beta_{i, i = \{6, 7\} } \text{Educação} + \beta_8\text{Nordeste} + u_i
+$$
 
 Nestes modelos, as variáveis "``log(Pop)``", "``Emprego``", "``Evasão-EM``" representam o *log* da população, o tempo médio que um trabalhador permance empregado e a taxa de evasão do ensino médio de cada município, respectivamente. A variável "``Nordeste``" é uma *dummy* que assume o valor 1 se a cidade observada é na região nordeste do país e 0 caso contrário. Espera-se que as variáveis "``log(Pop)``" e "``Evasão-EM``" possuam um sinal positivo, a primeira porque é natural que municípios maiores apresentem um maior número de óbitos e a última para refletir a intuição de que uma maior evasão escolar está relacionada à um baixo nível de instrução e, consequentemente, a uma qualidade de vida menor e expectativa de vida mais curta. O sinal esperado da variável "``Emprego``" é positivo, relefetindo a ideia de que uma permanência maior em um emprego, na média, tende a aumentar a qualidade de vida de um trabalhador e, portanto, diminuir as chances de óbito.
 
@@ -44,36 +53,97 @@ No terceiro e último modelo, o componente "``Educação``" e seus subscritos in
 
 $$log(\text{mortes}) = \beta_0 + \beta_1 log(\text{Pop}) + \beta_2 \text{Emprego} + \beta_3 log(\text{Despesa}) + \beta_4 \text{Evasão-EM} + \beta_5 \text{Nordeste} + u_i$$
 
+<style>
+.table-reg {
+  border-collapse: collapse;
+  margin: 20px auto;
+  font-family: "Times New Roman", serif;
+  font-size: 14px;
+  text-align: center;
+}
+.table-reg th, .table-reg td {
+  padding: 4px 8px;
+}
+.table-reg thead tr:first-child th {
+  border-bottom: 1px solid black;
+}
+.table-reg tbody tr:last-child td {
+  border-top: 1px solid black;
+}
+.table-reg tfoot td {
+  font-style: italic;
+  font-size: 12px;
+  text-align: left;
+  padding-top: 6px;
+}
+</style>
 
-                                      Modelo 01                                   
-    ==============================================================================
-    Dep. Variable:             log_obitos   R-squared:                       0.941
-    Model:                            OLS   Adj. R-squared:                  0.940
-    Method:                 Least Squares   F-statistic:                 1.534e+04
-    Date:                Mon, 16 Sep 2024   Prob (F-statistic):               0.00
-    Time:                        10:00:41   Log-Likelihood:                -663.95
-    No. Observations:                4685   AIC:                             1340.
-    Df Residuals:                    4679   BIC:                             1379.
-    Df Model:                           5                                         
-    Covariance Type:                  HC1                                         
-    =======================================================================================
-                              coef    std err          z      P>|z|      [0.025      0.975]
-    ---------------------------------------------------------------------------------------
-    const                  -4.5198      0.085    -53.250      0.000      -4.686      -4.353
-    log_populacao           0.9482      0.004    270.681      0.000       0.941       0.955
-    tempo_medio_emprego     0.0010      0.000      4.257      0.000       0.001       0.001
-    log_despesa             0.0032      0.004      0.815      0.415      -0.005       0.011
-    taxa_abandono_em       -0.0143      0.001    -12.724      0.000      -0.016      -0.012
-    nordeste               -0.0515      0.009     -5.991      0.000      -0.068      -0.035
-    ==============================================================================
-    Omnibus:                      581.550   Durbin-Watson:                   1.497
-    Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1105.921
-    Skew:                          -0.797   Prob(JB):                    7.12e-241
-    Kurtosis:                       4.768   Cond. No.                         576.
-    ==============================================================================
-    
-    Notes:
-    [1] Standard Errors are heteroscedasticity robust (HC1)
+<table class="table-reg">
+  <caption style="caption-side:top; text-align:center; font-weight:normal; margin-bottom:6px;">
+    Table 1: Modelo 01 - Regressão Linear
+  </caption>
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2">Estimate (S.E.)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(Intercept)</td>
+      <td>-4.5198<sup>*</sup></td>
+      <td>(0.085)</td>
+    </tr>
+    <tr>
+      <td>log_populacao</td>
+      <td>0.9482<sup>*</sup></td>
+      <td>(0.004)</td>
+    </tr>
+    <tr>
+      <td>tempo_medio_emprego</td>
+      <td>0.0010<sup>*</sup></td>
+      <td>(0.000)</td>
+    </tr>
+    <tr>
+      <td>log_despesa</td>
+      <td>0.0032</td>
+      <td>(0.004)</td>
+    </tr>
+    <tr>
+      <td>taxa_abandono_em</td>
+      <td>-0.0143<sup>*</sup></td>
+      <td>(0.001)</td>
+    </tr>
+    <tr>
+      <td>nordeste</td>
+      <td>-0.0515<sup>*</sup></td>
+      <td>(0.009)</td>
+    </tr>
+    <tr>
+      <td colspan="3"></td>
+    </tr>
+    <tr>
+      <td>N</td><td colspan="2">4685</td>
+    </tr>
+    <tr>
+      <td>R<sup>2</sup></td><td colspan="2">0.941</td>
+    </tr>
+    <tr>
+      <td>Adj. R<sup>2</sup></td><td colspan="2">0.940</td>
+    </tr>
+    <tr>
+      <td>AIC</td><td colspan="2">1340</td>
+    </tr>
+    <tr>
+      <td>BIC</td><td colspan="2">1379</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">* p ≤ 0.05. Erros-padrão robustos (HC1).</td>
+    </tr>
+  </tfoot>
+</table>
 
 
 ### Modelo 02
