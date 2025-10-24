@@ -1,4 +1,11 @@
 FROM ruby:3.0
 
-RUN gem install bundler
+WORKDIR /app
+
+COPY Gemfile ./
+COPY Gemfile.lock ./
+
+RUN gem install bundler 
 RUN bundle install
+
+COPY . .

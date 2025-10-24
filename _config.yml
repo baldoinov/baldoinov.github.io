@@ -66,6 +66,8 @@ plugins:
   - jekyll-email-protect
   - jekyll-target-blank
   - jekyll-scholar
+  - jekyll-gfm-admonitions
+
 
 scholar:
   style: apa

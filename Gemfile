@@ -8,4 +8,5 @@ group :jekyll_plugins do
   gem 'jekyll-email-protect'
   gem 'jekyll-target-blank'
   gem 'jekyll-scholar'
+  gem "jekyll-gfm-admonitions"
 end

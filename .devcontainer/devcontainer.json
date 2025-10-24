@@ -3,5 +3,6 @@
     // "image": "mcr.microsoft.com/devcontainers/ruby:3.2",
     "dockerFile": "Dockerfile",
     "forwardPorts": [4000, 35729],
+    "context": "..",
     // "postStartCommand": "gem install bundler jekyll",
 }

@@ -31,6 +31,7 @@ GEM
       time (< 1.0)
     csl-styles (2.0.1)
       csl (~> 2.0)
+    cssminify (1.0.2)
     csv (3.3.5)
     date (3.4.1)
     em-websocket (0.5.3)
@@ -68,6 +69,10 @@ GEM
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
     jekyll-email-protect (1.1.0)
+    jekyll-gfm-admonitions (1.2.0)
+      cssminify (~> 1.0)
+      jekyll (>= 3.0, < 5.0)
+      octicons (~> 19.8)
     jekyll-paginate (1.1.0)
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
@@ -104,6 +109,7 @@ GEM
     nokogiri (1.17.2-x86_64-linux)
       racc (~> 1.4)
     observer (0.1.2)
+    octicons (19.18.0)
     open-uri (0.5.0)
       stringio
       time
@@ -145,6 +151,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll
   jekyll-email-protect
+  jekyll-gfm-admonitions
   jekyll-paginate
   jekyll-scholar
   jekyll-seo-tag
