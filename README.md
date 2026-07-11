@@ -1,13 +1,17 @@
-# Personal Portfolio
+# Blog Pessoal
 
-Built with [Gradfolio](https://github.com/jitinnair1/gradfolio/), a responsive, dark-mode ready Jekyll theme designed for use as a personal website and portfolio. [Here's a live demo](https://jitinnair1.github.io/gradfolio/)
+Feito com [Gradfolio](https://github.com/jitinnair1/gradfolio/), um tema Jekyll responsivo, com suporte a modo escuro, pensado para uso como site pessoal e portfólio.
 
-## Editing
+Além disso, utilizo:
 
-- To edit it locally, use:
+- [jekyll-scholar](https://github.com/inukshuk/jekyll-scholar) para renderizar as referências bibliográficas;
+- [jekyll-gfm-admonitions](https://github.com/Helveg/jekyll-gfm-admonitions) para renderizar os _admonitions_.
+
+
+## Edição
+
+Para editar localmente ou no GitHub Codespaces, use:
 
 ```shell
-bundle exec jekyll serve --trace --incremental --baseurl=""
+bundle exec jekyll serve --drafts --livereload --baseurl=""
 ```
-
-- I've added [jekyll-scholar](https://github.com/inukshuk/jekyll-scholar) as a plugin for this theme.
