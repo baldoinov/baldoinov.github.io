@@ -30,12 +30,23 @@
     <body>
 
         <hr style="height:0.5pt; visibility:hidden;" />
-        
+
+        {% if page.layout == 'post' %}
+        <aside class="toc-rail">
+            <p class="toc-eyebrow">Neste post</p>
+            <ol id="toc-list"></ol>
+        </aside>
+        {% endif %}
+
         <main>
             <article>
                 {{ content }}
             </article>
         </main>
+
+        {% if page.layout == 'post' %}
+        <script src="{{site.baseurl}}/assets/js/toc.js" defer></script>
+        {% endif %}
 
         <footer>
           <p class="copy">
