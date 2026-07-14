@@ -5,6 +5,11 @@ layout: default
 <h1 class="post-headline">{{page.title}}</h1>
 <p class="meta"><small>{{page.date | date: '%Y-%m-%d'}}</small></p>
 
+<details class="toc-inline">
+    <summary>Neste post</summary>
+    <ol id="toc-list-inline"></ol>
+</details>
+
 {{content}}
 
 

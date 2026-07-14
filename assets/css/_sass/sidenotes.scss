@@ -1,0 +1,71 @@
+/* Tufte-style sidenotes: assets/js/sidenotes.js moves each footnote
+   definition next to its reference and floats it into the right margin. */
+article sup a.footnote {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+article sup a.footnote:hover {
+  color: $brand-color;
+}
+
+.sidenote {
+  float: right;
+  clear: right;
+  width: 200px;
+  margin-right: -240px;
+  margin-top: 0.2em;
+  font-size: 0.68*$base-font-size;
+  line-height: 1.4;
+  color: $light-gray;
+}
+
+.sidenote p {
+  margin: 0;
+}
+
+.sidenote .sidenote-number {
+  font-size: 0.8em;
+  vertical-align: super;
+  line-height: 1;
+  margin-right: 0.25em;
+  color: $text-color;
+
+  @media (prefers-color-scheme: dark) {
+    color: $text-color-dark;
+  }
+}
+
+.sidenote a {
+  color: $light-gray;
+  text-decoration: underline;
+}
+
+.sidenote a:hover {
+  color: $text-color;
+
+  @media (prefers-color-scheme: dark) {
+    color: $text-color-dark;
+  }
+}
+
+@include media-query($on-widescreen) {
+  .sidenote {
+    float: none;
+    display: block;
+    width: auto;
+    margin: 0.6em 0;
+    padding-left: 0.8em;
+    border-left: 2px solid #e4e4e4;
+    font-size: 0.85em;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include media-query($on-widescreen) {
+    .sidenote {
+      border-color: #333941;
+    }
+  }
+}
